@@ -1,4 +1,4 @@
-name: Scrape latest data
+name: 最新データをダウンロード
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     - name: Fetch latest data
       run: |-
         curl https://covid-19-surveillance.s3-ap-northeast-1.amazonaws.com/public_data/covid-19_daily_survey.csv > public/data/data.csv
-        TZ=JST-9 date "+%Y-%m-%d" > public/data/timestamp
+        TZ=JST-9 date "+%Y-%m-%d" > public/data/timestamp.txt
     - name: Commit and push if it changed
       run: |-
         git config user.name "shimizu"
